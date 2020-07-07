@@ -100,6 +100,7 @@ class BST:
                 node = node.right
         return node
 
+# 递归实现前序遍历
     def per_order(self, node):
         if node is None:
             return
@@ -108,6 +109,7 @@ class BST:
         self.per_order(node.right)
         return node
 
+#递归实现中序遍历
     def zhon_order(self, node):
         if node is None:
             return
@@ -116,6 +118,7 @@ class BST:
         self.zhon_order(node.right)
         return node
 
+# 递归实现 后续遍历
     def hou_order(self, node):
         if node is None:
             return
@@ -123,6 +126,7 @@ class BST:
         self.hou_order(node.right)
         print(node.data)
         return node
+    # 前序遍历 栈实现
     def pre_ordor_stack(self,node):
         stack=[]
         while node or len(stack)>0:
@@ -133,6 +137,7 @@ class BST:
             if len(stack)>0:
                 node=stack.pop()
                 node=node.right
+    # 中序便利栈实现
     def cen_ordor_stack(self,node):
         stack=[]
         while node or len(stack)>0:
@@ -144,12 +149,40 @@ class BST:
                 print(node.data)
                 # node=self.search(node)
                 node=node.right
-# def hou_order_stack(self,node):
+    # 后序遍历 栈实现
+    def hou_order_stack(self,node):
+        if node is None:
+            return False
+        stack1=[]
+        stack2=[]
+        stack1.append(node)
+        while stack1:
+            node=stack1.pop()
+            if node.left:
+                stack1.append(node.left)
+            if node.right:
+                stack1.append(node.right)
+            stack2.append(node)
+        while stack2:
+            print(stack2.pop().data,end="  ")
+    # 层序遍历
+    def level_ordor(self,root:Node):
+        from queue import Queue
+        queue=Queue()
+        queue.put(root)
+        while not queue.empty():
+            node =queue.get()
+            print(node.data)
+            if node.left:
+                queue.put(node.left)
+            if node.right:
+                queue.put(node.right)
 
-
-bst = BST().insert(8, 3, 6, 1)
+bst = BST().insert(1,2,3,4,5,6,7)
 bst.zhon_order(bst.root)
 bst.cen_ordor_stack(bst.root)
+bst.hou_order_stack(bst.root)
+bst.level_ordor(bst.root)
 # if __name__ == '__main__':
 # bst = BST().insert(8, 3, 6, 1)
 # print(bst)
