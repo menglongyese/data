@@ -128,7 +128,7 @@ class BST:
         while node or len(stack)>0:
             while node :
                 print(node.data)
-                stack.append(node.data)
+                stack.append(node)
                 node=node.left
             if len(stack)>0:
                 node=stack.pop()
@@ -137,12 +137,12 @@ class BST:
         stack=[]
         while node or len(stack)>0:
             while node:
-                stack.append(node.data)
+                stack.append(node)
                 node=node.left
             if len(stack)>0:
                 node=stack.pop()
-                print(node)
-                node=self.search(node)
+                print(node.data)
+                # node=self.search(node)
                 node=node.right
 # def hou_order_stack(self,node):
 
