@@ -28,9 +28,9 @@ class Heap:
         total_index=len(self.data_list)-1
         while True:
             maxvalue_index=index
-            if 2*index+1<=total_index and self.data_list[2*index+1]>self.data_list[2*index+2]:
+            if 2*index+1<total_index and self.data_list[2*index+1]>self.data_list[2*index+2]:
                 maxvalue_index=2*index+1
-            if 2 * index + 2 <= total_index and self.data_list[2 * index + 2] > self.data_list[2 * index + 1]:
+            if 2 * index + 2 <total_index and self.data_list[2 * index + 2] > self.data_list[2 * index + 1]:
                 maxvalue_index=2*index+2
             if maxvalue_index==index:
                 break

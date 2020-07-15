@@ -35,6 +35,7 @@ class BST:
         else:
             parent_node = self.root
             while True:
+
                 if new_node.data < parent_node.data:
                     if parent_node.left is None:
                         parent_node.left = new_node
@@ -126,6 +127,7 @@ class BST:
         self.hou_order(node.right)
         print(node.data)
         return node
+
     # 前序遍历 栈实现
     def pre_ordor_stack(self,node):
         stack=[]
@@ -147,7 +149,6 @@ class BST:
             if len(stack)>0:
                 node=stack.pop()
                 print(node.data)
-                # node=self.search(node)
                 node=node.right
     # 后序遍历 栈实现
     def hou_order_stack(self,node):
@@ -178,11 +179,11 @@ class BST:
             if node.right:
                 queue.put(node.right)
 
-bst = BST().insert(1,2,3,4,5,6,7)
+bst = BST().insert(8,6,10,4,7)
 bst.zhon_order(bst.root)
-bst.cen_ordor_stack(bst.root)
-bst.hou_order_stack(bst.root)
-bst.level_ordor(bst.root)
+# bst.cen_ordor_stack(bst.root)
+# bst.hou_order_stack(bst.root)
+# bst.level_ordor(bst.root)
 # if __name__ == '__main__':
 # bst = BST().insert(8, 3, 6, 1)
 # print(bst)

@@ -1,6 +1,4 @@
 from typing import List
-
-
 class Node:  # 节点创建
     def __init__(self, data):
         self.data = data
@@ -121,7 +119,7 @@ class LinkList:  # 链表创建
 
 if __name__ == '__main__':  # 主函数
     ll = LinkList()
-    ll.linklist([1, 2, 3, 4, 5])
+    # ll.linklist([1, 2, 3, 4, 5])
     ll.append("append")
     ll.insert_head(100)
     ll.insert_head("ds")
